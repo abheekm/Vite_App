@@ -1,0 +1,22 @@
+name: Vite_App_YML
+description: This is Vite_App_YML sample
+version: 1.0
+settings:
+  build-steps:
+    - name: Install and Build
+      key: runner_cmd
+      disabled: false
+      workDir: ''
+      args:
+        commands: |- 
+          npm install
+          npm run build
+  artifacts:
+    - name: Folder1
+      condition: buildSucceeds
+      paths:
+        - packages/lexical
+    - name: Folder2
+      condition: buildSucceeds
+      paths:
+        - packages/lexical-website
