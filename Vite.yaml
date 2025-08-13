@@ -1,0 +1,32 @@
+name: Vite_App_Public
+description: ""
+settings:
+  vcs-steps:
+  - key: vcs_git
+    name: vcs
+    disabled: false
+    args:
+      authType: anonymous
+      branch: main
+      url: https://github.com/facebook/lexical.git
+    argsProtected: {}
+  build-steps:
+  - key: runner_cmd
+    name: Install
+    disabled: false
+    workDir: ""
+    args:
+      commands: npm install
+    argsProtected: {}
+  - key: runner_cmd
+    name: Build
+    disabled: false
+    workDir: ""
+    args:
+      commands: npm run build
+    argsProtected: {}
+  artifacts:
+  - name: Sample
+    condition: buildSucceeds
+    paths:
+    - packages/lexical
