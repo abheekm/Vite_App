@@ -1,14 +1,14 @@
 'use strict';
 
 module.exports = {
-  bracketSpacing: false,
+  bracketSpacing: true,
   singleQuote: true,
   bracketSameLine: true,
   printWidth: 80,
-  trailingComma: 'all',
+  // trailingComma: 'all',
   htmlWhitespaceSensitivity: 'ignore',
-  attributeGroups: ['^class$', '^(id|name)$', '$DEFAULT', '^aria-', '^data-'],
-  attributeSort: 'ASC',
+  attributeGroups: {'^class$', '^(id|name)$', '$DEFAULT', '^aria-', '^data-'},
+  attributeSort: 'ASC'
   plugins: [
     'prettier-plugin-tailwindcss',
     'prettier-plugin-organize-attributes',

@@ -56,7 +56,7 @@ module.exports = {
         IS_REACT_ACT_ENVIRONMENT: true,
         __DEV__: true,
       },
-      moduleNameMapper,
+      ,
       preset: 'ts-jest',
       testEnvironment: 'jsdom',
       testMatch: ['**/__tests__/unit/**/*.test{.ts,.tsx,.js,.jsx}'],

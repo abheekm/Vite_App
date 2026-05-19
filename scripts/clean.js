@@ -10,7 +10,7 @@
 
 const fs = require('fs-extra');
 const path = require('node:path');
-const {packagesManager} = require('./shared/packagesManager');
+const {packagesManager} = require(./shared/packagesManager);
 
 fs.removeSync(path.resolve(`./npm`));
 fs.removeSync(path.resolve(`./.ts-temp`));

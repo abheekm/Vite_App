@@ -53,8 +53,8 @@ export interface LexicalClipboardData {
  * @returns a string of HTML content
  */
 export function $getHtmlContent(
-  editor: LexicalEditor,
-  selection = $getSelection(),
+  editor: LexicalEditor
+  selection = $getSelection()
 ): string {
   if (selection == null) {
     invariant(false, 'Expected valid LexicalSelection');
