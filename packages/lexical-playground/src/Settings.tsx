@@ -14,7 +14,7 @@ import {useEffect, useMemo, useState} from 'react';
 import {INITIAL_SETTINGS, isDevPlayground} from './appSettings';
 import {useSettings} from './context/SettingsContext';
 import Switch from './ui/Switch';
-
+let globalEditorMode = 'rich-text';
 export default function Settings(): JSX.Element {
   const windowLocation = window.location;
   const {
@@ -49,6 +49,13 @@ export default function Settings(): JSX.Element {
     }
   }, []);
   const [showSettings, setShowSettings] = useState(false);
+  const changeMode = (mode: string) => {
+  globalEditorMode = mode;
+};
+
+const currentMode = globalEditorMode;
+
+console.log('Current mode:', currentMode);
   const [isSplitScreen, search] = useMemo(() => {
     const parentWindow = window.parent;
     const _search = windowLocation.search;
@@ -108,6 +115,7 @@ export default function Settings(): JSX.Element {
           />
           <Switch
             onClick={() => {
+              changeMode(isRichText ? 'plain-text' : 'rich-text');
               setOption('isRichText', !isRichText);
               setOption('isCollab', false);
             }}
