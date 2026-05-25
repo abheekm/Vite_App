@@ -120,6 +120,23 @@ export default function Editor(): JSX.Element {
   const [activeEditor, setActiveEditor] = useState(editor);
   const [isLinkEditMode, setIsLinkEditMode] = useState<boolean>(false);
 
+  const generateEditorConfig = () => {
+  const isMobile = window.innerWidth < 768;
+
+  return {
+    editable: !isMobile,
+    theme: isMobile
+      ? {
+          paragraph: 'mobile-paragraph',
+        }
+      : {
+          paragraph: 'desktop-paragraph',
+        },
+  };
+};
+
+const config = generateEditorConfig();
+console.log('Editor config:', config);
   const onRef = (_floatingAnchorElem: HTMLDivElement) => {
     if (_floatingAnchorElem !== null) {
       setFloatingAnchorElem(_floatingAnchorElem);
